@@ -1,19 +1,58 @@
 <% if signed_in? %>
   <div class="row">
+    
+    <button style = "background-color:transparent; border:none; padding: 25px" id="up" onClick="cycleSiteloader();"><%=link_to image_tag("arrow_up.png")%></button>
+    <button style = "background-color:transparent; border:none; padding: 25px" id="down" onClick="cycleSiteloader();"><%=link_to image_tag("arrow_down.png")%></button>
     <aside class="span4">
-      <section>
-        <%= render 'shared/user_info' %>
-      </section>
-      
-    </aside>
-   <% else %>
-  <div class="center hero-unit">
-    <h1>Learn things!</h1>
+
+    <script> 
+      urls = ["https://www.udemy.com/swift-learn-apples-new-programming-language-by-examples/?dtcode=hpznfe9b/","https://www.udemy.com/learn-the-basics-of-ethical-hacking-and-penetration-testing/", "https://www.udemy.com/dad-is-cooking/", "https://www.udemy.com/music-forest-academy/", "https://www.udemy.com/how-to-become-a-web-developer-from-scratch/", "https://www.udemy.com/unity3d-concepts/", "https://www.udemy.com/create-your-first-computer-game-with-stencyl/"];
+                urlsIndex = 0;
+
+          $("#siteloader").html('<object data='+urls[urlsIndex]+'/>');
+
+    function cycleSiteloader(button_id) {
+      urlsIndex = (urlsIndex+1) % urls.length;
+      console.log(urls[urlsIndex]);
+      $("#siteloader").html('<object data='+urls[urlsIndex]+'/>');
+
+      /*plusminus = document.getElementById("plusminus");
+  if(button_id == "up"){
+    plusminus.src="http://blogs.riverfronttimes.com/dailyrft/puppy_dog-7158.jpg";//img +1
+    setTimeout(function(){plusminus.style.content = "+1";},1000);
+  }
+  else(button_id == "down"){
+    plusminus.style.content = ;//img -1
+    setTimeout(function(){plusminus.style.content = "-1";},1000);
+  }*/
+    }
 
     
 
-    <%= link_to "Sign up now!", signup_path, 
-                                class: "btn btn-large btn-primary" %>
+    </script>
+    <script href="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    
+
+    
+      
+    </aside>
+
+
+    <div style="height:700px;" id="siteloader"></div>
+    </div>
+   <% else %>
+  <div>
+    <script> 
+    
+    $("#siteloader").html('<object data="https://www.udemy.com/swift-learn-apples-new-programming-language-by-examples/?dtcode=hpznfe9b/" />');</script>
+    <script href="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
+    <div id="siteloader"></div>
+
+    <aside class ="span4">
+      <%= link_to "Sign up now!", signup_path, 
+                                class: "btn btn-large btn-primary" %></aside>
+
   </div>
 
 <% end %> 

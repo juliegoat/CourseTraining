@@ -1,0 +1,29 @@
+<script>
+function arrowButton(button_id){
+	plusminus = document.getElementById("plusminus");
+	if(button_id == "up"){
+		plusminus.style.content = ;//img +1
+		setTimeout(function(){plusminus.style.content = "+1";},1000);
+	}
+	else(button_id == "down"){
+		plusminus.style.content = ;//img -1
+		setTimeout(function(){plusminus.style.content = "-1";},1000);
+	}
+}
+</script>
+<script> urls = ["https://www.udemy.com/swift-learn-apples-new-programming-language-by-examples/?dtcode=hpznfe9b/","http://www.example.com"];
+                urlsIndex = 0;
+
+    function cycleSiteloader() {
+      urlsIndex = (urlsIndex+1) % urls.length;
+      console.log(urls[urlsIndex]);
+      $("#siteloader").html('<object data='+urls[urlsIndex]+'/>');
+    }</script>
+    <script href="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
+
+<button onClick="cycleSiteLoader()"><%=link_to image_tag("arrow_up.png")%></button>
+<button onClick="cycleSiteLoader()"><%=link_to image_tag("arrow_down.png")%></button>
+
+
+<div id="plusminus">

@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   
 
+  get 'courses/index'
+
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   root  'static_pages#home'
